@@ -32,9 +32,7 @@ void Stack::push(Point p){
 // removes and returns the top element of the stack
 // returns a default (0,0) point if stack is empty
 Point pop(){
-    Point p;
+    Point p = peek();
+    st.erase(st.size()-1);
     return p;
 }
-
-
-
