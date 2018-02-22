@@ -11,7 +11,41 @@
 // 	one of the legs of the angle is represened by the line through v[0] and
 //	v[i], and the other is the x-axis.
 void sortByAngle(vector<Point>& v){
-    return;
+  findLowestY(v);
+  Point lyp = v[0];
+  vector<double> slopes = slopes(v);
+
+  for (int i = 0; int < v.size() - 1; i++){
+    int index = i;
+    int min = slopes[i];
+
+    //find index of min from i-j
+    for(int j = i; j < v.size(); j++){
+      if(slopes[j] < min){
+        min = slopes[j];
+        index = j;
+      }
+    }
+    double temp_slope = slopes[i];
+    slopes[i] = slopes[index];
+    slopes[index] = temp_slope;
+
+    Point temp = v[i];
+    v[i] = v[index];
+    v[index] = temp;
+  }
+}
+
+vector<double> slopes (vector<Point>){
+  vector <double> slopes;
+  for(int i = 0; i < v.size(); i++)+{
+    slopes.push_back(slope(v[0],v[i]));
+    return slopes;
+  }
+}
+
+double slope(Point p1, Point p2){
+    return abs((p2.y - p1.y) / (p2.x - p1.x));
 }
 
 // determines whether a path from p1 to p2 to p3 describes a counterclockwise turn
@@ -36,4 +70,23 @@ vector<Point> getConvexHull(vector<Point>& v){
 
 
 
+void findLowestY(vector<Point> &v){
+    Point ret = v[0];
+    int index = 0;
 
+    for (int i = 1; i < v.size(); i++){
+        if (v[i].y < ret.y){
+            ret = v[i];
+            index = i;
+        }
+
+        if (v[i].y == ret.y && v[i].x < ret.x){
+            ret = v[i];
+            index = i;
+        }
+    }
+
+    Point temp = v[0];
+    v[0] = ret;
+    v[index] = temp;
+}
