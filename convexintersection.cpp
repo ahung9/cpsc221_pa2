@@ -9,9 +9,6 @@
 //              Sutherland-Hodgman algorithm
 //              https://en.wikipedia.org/wiki/Sutherland–Hodgman_algorithm
 
-#ifndef _CONVEXINTERSECTION_H_
-#define _CONVEXINTERSECTION_H_
-
 #include <cmath>
 #include <vector>
 #include "point.h"
@@ -49,4 +46,3 @@ vector<Point> getConvexIntersection(vector<Point>& poly1, vector<Point>& poly2){
 
 // You may add some of your own useful functions here,
 // BUT DO NOT MODIFY ANY OF THE FUNCTIONS ABOVE
-
