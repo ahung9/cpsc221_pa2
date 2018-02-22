@@ -15,12 +15,12 @@ void sortByAngle(vector<Point>& v){
   Point lyp = v[0];
   vector<double> slopes = slopes(v);
 
-  for (int i = 0; int < v.size() - 1; i++){
+  for (int i = 0; int < (int)v.size() - 1; i++){
     int index = i;
     int min = slopes[i];
 
     //find index of min from i-j
-    for(int j = i; j < v.size(); j++){
+    for(int j = i; j < (int)v.size(); j++){
       if(slopes[j] < min){
         min = slopes[j];
         index = j;
@@ -38,7 +38,8 @@ void sortByAngle(vector<Point>& v){
 
 vector<double> slopes (vector<Point>){
   vector <double> slopes;
-  for(int i = 0; i < v.size(); i++)+{
+  slopes.push_back(0);
+  for(int i = 1; i < (int)v.size(); i++)+{
     slopes.push_back(slope(v[0],v[i]));
     return slopes;
   }
@@ -74,7 +75,7 @@ void findLowestY(vector<Point> &v){
     Point ret = v[0];
     int index = 0;
 
-    for (int i = 1; i < v.size(); i++){
+    for (int i = 1; i < (int)v.size(); i++){
         if (v[i].y < ret.y){
             ret = v[i];
             index = i;

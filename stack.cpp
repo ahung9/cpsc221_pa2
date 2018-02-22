@@ -14,7 +14,7 @@ Point Stack::peek(){
 
 // returns number of elements in the stack
 int Stack::size(){
-    st.size();
+    return st.size();
 }
 
 // returns true if the stack is empty, false otherwise
@@ -31,8 +31,8 @@ void Stack::push(Point p){
 
 // removes and returns the top element of the stack
 // returns a default (0,0) point if stack is empty
-Point pop(){
+Point Stack::pop(){
     Point p = peek();
-    st.erase(st.size()-1);
+    st.pop_back();
     return p;
 }

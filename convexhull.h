@@ -42,4 +42,10 @@ vector<Point> getConvexHull(vector<Point>& v);
 // BUT DO NOT MODIFY ANY OF THE FUNCTIONS ABOVE
 
 
+double slope(Point p1, Point p2);
+
+void findLowestY (vector<Point> &v);
+
+vector<double> slopes (vector<Point> v);
+
 #endif
